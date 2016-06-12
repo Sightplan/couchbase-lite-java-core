@@ -319,7 +319,7 @@ final public class DatabaseUpgrade {
                 String digest = blobKey.base64Digest();
 
                 Map<String, Object> att = new HashMap<String, Object>();
-                att.put("type", mimeType);
+                att.put("content_type", mimeType);
                 att.put("digest", digest);
                 att.put("length", length);
                 att.put("revpos", revpos);
