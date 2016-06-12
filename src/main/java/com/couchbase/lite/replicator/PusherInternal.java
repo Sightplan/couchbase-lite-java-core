@@ -518,6 +518,9 @@ public class PusherInternal extends ReplicationInternal implements Database.Chan
         MultipartEntity multiPart = null;
         Map<String, Object> revProps = revision.getProperties();
         Map<String, Object> attachments = (Map<String, Object>) revProps.get("_attachments");
+        if(attachments == null) {
+            return false;
+        }
         for (String attachmentKey : attachments.keySet()) {
             Map<String, Object> attachment = (Map<String, Object>) attachments.get(attachmentKey);
             if (attachment.containsKey("follows")) {
